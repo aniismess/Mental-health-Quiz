@@ -1,13 +1,9 @@
 "use client"
-
 import type React from "react"
-
 import { useEffect, useState } from "react"
 import { useRouter, usePathname } from "next/navigation"
 import { checkAdminAuth } from "@/lib/auth"
-import { Button } from "@/components/ui/button"
 import { getSupabaseClient } from "@/lib/supabase"
-import { LogOut, User } from "lucide-react"
 
 export default function AdminLayout({
   children,
@@ -42,7 +38,7 @@ export default function AdminLayout({
   // Show loading while checking auth
   if (isAdmin === null) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100 flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-white">
         <div className="text-center">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
           <p className="mt-2 text-gray-600">Checking authentication...</p>
@@ -53,37 +49,19 @@ export default function AdminLayout({
 
   // Show login page if not admin
   if (!isAdmin) {
-    return <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">{children}</div>
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-teal-50 to-yellow-50">
+        <h2 className="text-2xl font-bold text-center text-gray-900 mb-4"></h2>
+        {children}
+      </div>
+    )
   }
 
-  // Show admin layout with header
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
-      <header className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <h1 className="text-xl font-semibold text-gray-900">Admin Dashboard</h1>
-            </div>
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2 text-sm text-gray-600">
-                <User className="h-4 w-4" />
-                <span>{adminUser?.name || adminUser?.email}</span>
-              </div>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={handleLogout}
-                className="flex items-center space-x-2 bg-transparent"
-              >
-                <LogOut className="h-4 w-4" />
-                <span>Logout</span>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
-      <main>{children}</main>
+    <div className="min-h-screen bg-white">
+      <main className="max-w-7xl mx-auto px-4 py-8">
+        {children}
+      </main>
     </div>
   )
 }

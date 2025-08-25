@@ -92,13 +92,11 @@ export default function DemographicsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
-      <Card className="w-full max-w-2xl">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-teal-50 to-yellow-50 flex items-center justify-center p-4">
+      <Card className="w-full max-w-2xl shadow-xl rounded-2xl border-0">
         <CardHeader className="text-center">
-          <CardTitle className="text-3xl font-bold text-gray-900">Mental Health Quiz System</CardTitle>
-          <CardDescription className="text-lg text-gray-600">
-            Please fill out your information to begin the assessment
-          </CardDescription>
+          <CardTitle className="text-3xl font-bold text-blue-900">Welcome to the Mental Health Quiz</CardTitle>
+          <CardDescription className="text-lg text-gray-600">Please fill in your details to begin</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-6">

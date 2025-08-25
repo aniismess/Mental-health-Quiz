@@ -107,9 +107,10 @@ export default function VAKQuizPage() {
 
       // Update completion status
       const { error: completionError } = await supabase
-        .from("quiz_completions")
+        .from("quiz_sessions") // Changed to quiz_sessions
         .update({ vak_completed: true })
         .eq("user_id", userId)
+        .eq("id", sessionId) // Ensure specific session is updated
 
       if (completionError) throw completionError
 

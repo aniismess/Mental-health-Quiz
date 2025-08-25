@@ -105,7 +105,7 @@ export default function AllResultsPage() {
                 <span className="font-semibold">Age:</span> {results.user?.age}
               </div>
               <div>
-                <span className="font-semibold">Course:</span> {results.user?.course}
+                <span className="font-semibold">Course:</span> {results.user?.course_name}
               </div>
               <div>
                 <span className="font-semibold">Semester:</span> {results.user?.semester}

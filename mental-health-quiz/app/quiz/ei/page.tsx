@@ -123,9 +123,10 @@ export default function EIQuizPage() {
 
       // Update completion status
       const { error: completionError } = await supabase
-        .from("quiz_completions")
-        .update({ ei_completed: true })
+        .from("quiz_sessions")
+        .update({ ei_completed: true, all_completed: true, completed_at: new Date().toISOString() }) // Update all_completed and completion_date
         .eq("user_id", userId)
+        .eq("id", sessionId) // Ensure specific session is updated
 
       if (completionError) throw completionError
 
