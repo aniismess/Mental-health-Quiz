@@ -1,0 +1,17 @@
+export const COURSES = [
+  { id: "C1", name: "B.Tech Computer Science", semesters: 8 },
+  { id: "C2", name: "B.Tech Electronics", semesters: 8 },
+  { id: "C3", name: "B.Tech Mechanical", semesters: 8 },
+  { id: "C4", name: "B.Tech Civil", semesters: 8 },
+  { id: "C5", name: "MBA", semesters: 4 },
+  { id: "C6", name: "MBA(Finance)", semesters: 4 },
+  { id: "C7", name: "MBA(Marketing)", semesters: 4 },
+  { id: "C8", name: "MBA(HR)", semesters: 4 },
+  { id: "C9", name: "MBA(T)5Years", semesters: 10 },
+  { id: "C10", name: "MCA", semesters: 10 },
+  { id: "C11", name: "M.Tech", semesters: 4 },
+  { id: "C12", name: "BCA", semesters: 6 },
+  { id: "C13", name: "B.Com", semesters: 6 },
+  { id: "C14", name: "B.Sc Computer Science", semesters: 6 },
+  { id: "C15", name: "M.Sc Computer Science", semesters: 4 },
+]
