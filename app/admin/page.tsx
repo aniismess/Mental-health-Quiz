@@ -58,21 +58,11 @@ export default function AdminDashboard() {
   const [courseFilter, setCourseFilter] = useState("all")
   const [semesterFilter, setSemesterFilter] = useState("all")
   const [completionFilter, setCompletionFilter] = useState("all")
-  const [loadingAuth, setLoadingAuth] = useState(true)
 
   const router = useRouter()
 
   useEffect(() => {
-    const checkAuth = async () => {
-      const { isAdmin } = await checkAdminAuth()
-      if (!isAdmin) {
-        router.push("/admin/login")
-      } else {
-        setLoadingAuth(false)
-        fetchData()
-      }
-    }
-    checkAuth()
+    fetchData()
   }, [])
 
   useEffect(() => {
@@ -206,7 +196,7 @@ export default function AdminDashboard() {
     return [...new Set(users.map((user) => user[field]))].sort()
   }
 
-  if (loading || loadingAuth) {
+  if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100 flex items-center justify-center">
         <div className="text-center">
