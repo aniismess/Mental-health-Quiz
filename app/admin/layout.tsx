@@ -11,7 +11,7 @@ export default async function AdminLayout({
   const cookieStore = cookies()
   const pathname = headers().get('x-pathname') || headers().get('x-url') || "";
 
-  if (pathname.startsWith("/admin/login")) {
+  if (pathname.startsWith("/login")) {
     return <>{children}</>
   }
 
@@ -32,8 +32,8 @@ export default async function AdminLayout({
   const { data: { user } } = await supabase.auth.getUser()
 
   if (!user) {
-    if (!pathname.startsWith("/admin/login")) {
-      redirect("/admin/login")
+    if (!pathname.startsWith("/login")) {
+      redirect("/login")
     }
   }
 
@@ -44,8 +44,8 @@ export default async function AdminLayout({
     .single()
 
   if (!adminProfile) {
-    if (!pathname.startsWith("/admin/login")) {
-      redirect("/admin/login")
+    if (!pathname.startsWith("/login")) {
+      redirect("/login")
     }
   }
 

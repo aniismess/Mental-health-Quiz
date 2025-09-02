@@ -27,7 +27,7 @@ html {
       <body>
         {children}
         <footer className="w-full py-4 text-center text-sm text-gray-500 border-t mt-8">
-          <Link href="/admin/login" className="hover:underline">
+          <Link href="/login" className="hover:underline">
             Admin Login
           </Link>
         </footer>
