@@ -1,6 +1,6 @@
 import type React from "react"
 import { createServerClient, type CookieOptions } from "@supabase/ssr"
-import { cookies } from "next/headers"
+import { cookies, headers } from "next/headers"
 import { redirect } from "next/navigation"
 
 export default async function AdminLayout({
@@ -9,7 +9,7 @@ export default async function AdminLayout({
   children: React.ReactNode
 }) {
   const cookieStore = cookies()
-  const pathname = cookieStore.get("next-url")?.value || ""
+  const pathname = headers().get('x-pathname') || ""
 
   if (pathname === "/admin/login") {
     return <>{children}</>
