@@ -32,17 +32,21 @@ export default async function AdminLayout({
   const { data: { user } } = await supabase.auth.getUser()
 
   if (!user) {
-    redirect("/admin/login")
+    if (!pathname.startsWith("/admin/login")) {
+      redirect("/admin/login")
+    }
   }
 
   const { data: adminProfile } = await supabase
     .from("admin_users")
     .select("email")
-    .eq("email", user.email)
+    .eq("email", user?.email)
     .single()
 
   if (!adminProfile) {
-    redirect("/admin/login")
+    if (!pathname.startsWith("/admin/login")) {
+      redirect("/admin/login")
+    }
   }
 
   return (
